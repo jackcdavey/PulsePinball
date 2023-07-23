@@ -12,6 +12,8 @@ class GameScene: SKScene {
     
     // Declare the pinball, flippers, and launcher
     var pinball: SKSpriteNode?
+    var leftFlipperParent: SKNode?
+    var rightFlipperParent: SKNode?
     var leftFlipper: SKSpriteNode?
     var rightFlipper: SKSpriteNode?
     var launcher: SKSpriteNode?
@@ -21,6 +23,7 @@ class GameScene: SKScene {
     var curveWall: SKSpriteNode?
     var touchStart: TimeInterval?
     var isPullingBack = false
+    
 
     var originalPinballPosition: CGPoint?
     var originalLauncherPosition: CGPoint?
@@ -41,6 +44,27 @@ class GameScene: SKScene {
         rightWall = self.childNode(withName: "rightWall") as? SKSpriteNode
         outerWall = self.childNode(withName: "outerWall") as? SKSpriteNode
         curveWall = self.childNode(withName: "curveWall") as? SKSpriteNode
+        
+        leftFlipperParent = SKNode()
+        leftFlipperParent?.position = CGPoint(x: -size.width/2.3, y: -size.height/2.5)
+        addChild(leftFlipperParent!)
+        leftFlipper?.position = CGPoint.zero
+        leftFlipper?.removeFromParent()
+        leftFlipperParent?.addChild(leftFlipper!)
+
+        rightFlipperParent = SKNode()
+        rightFlipperParent?.position = CGPoint(x: size.width/4.7, y: -size.height/2.5)
+        addChild(rightFlipperParent!)
+        rightFlipper?.position = CGPoint.zero
+        rightFlipper?.removeFromParent()
+        rightFlipperParent?.addChild(rightFlipper!)
+
+
+        
+        
+        rightFlipper?.anchorPoint = CGPoint(x: 1.0, y: 0.5)
+        leftFlipper?.anchorPoint = CGPoint(x: 0.0, y: 0.5)
+
         
         originalLauncherPosition = launcher?.position
         originalPinballPosition = pinball?.position
@@ -132,10 +156,10 @@ class GameScene: SKScene {
         // Check where the screen was touched
         if location.x < -size.width / 6 {
             // Left third of the screen: flip the left flipper
-            leftFlipper?.run(leftFlip)
+            leftFlipperParent?.run(leftFlip)
         } else if (location.x > 0 && location.x < size.width / 6) {
             // Right third of the screen: flip the right flipper
-            rightFlipper?.run(rightFlip)
+            rightFlipperParent?.run(rightFlip)
         } else {
             // Middle third of the screen: launch the ball
             isPullingBack = true
