@@ -19,9 +19,11 @@ class GameScene: SKScene {
     var rightWall: SKSpriteNode?
     var outerWall: SKSpriteNode?
     var curveWall: SKSpriteNode?
-    
-    
+    var touchStart: TimeInterval?
 
+    
+    
+    
     override func didMove(to view: SKView) {
         
         // Set up the physics world
@@ -36,7 +38,7 @@ class GameScene: SKScene {
         rightWall = self.childNode(withName: "rightWall") as? SKSpriteNode
         outerWall = self.childNode(withName: "outerWall") as? SKSpriteNode
         curveWall = self.childNode(withName: "curveWall") as? SKSpriteNode
-
+        
         
         
         // Set up the pinball physics
@@ -62,21 +64,20 @@ class GameScene: SKScene {
         rightWall?.physicsBody = SKPhysicsBody(rectangleOf: rightWall!.size)
         outerWall?.physicsBody = SKPhysicsBody(rectangleOf: outerWall!.size)
         curveWall?.physicsBody = SKPhysicsBody(rectangleOf: curveWall!.size)
-
+        
         leftWall?.physicsBody?.isDynamic = false
         rightWall?.physicsBody?.isDynamic = false
         outerWall?.physicsBody?.isDynamic = false
         curveWall?.physicsBody?.isDynamic = false
-
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Get the location of the touch
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
-        var touchStart: TimeInterval?
-
-
+        
+        
         // Print the location of the touch
         print("Tapped at: \(location)")
         
@@ -94,12 +95,15 @@ class GameScene: SKScene {
         let moveLauncherUp = SKAction.moveBy(x: 0, y: 110, duration: 0.05)
         
         // Apply an impulse to the ball when the launcher moves up
-        let launchBall = SKAction.run {
-            let launch = SKAction.applyImpulse(CGVector(dx: 0, dy: 3000), duration: 0.1)
-            self.pinball?.run(launch)
-        }
-        let launchSequence = SKAction.sequence([moveLauncherDown, moveLauncherUp, launchBall])
+//        let launchBall = SKAction.run {
+//            let launch = SKAction.applyImpulse(CGVector(dx: 0, dy: 3000), duration: 0.1)
+//            self.pinball?.run(launch)
+//        }
+//        let launchSequence = SKAction.sequence([moveLauncherDown, moveLauncherUp, launchBall])
+        
+        let pullBack = SKAction.moveBy(x: 0, y: -10, duration: 0.1)
 
+        
         
         // Check where the screen was touched
         if location.x < -size.width / 6 {
@@ -110,10 +114,40 @@ class GameScene: SKScene {
             rightFlipper?.run(rightFlip)
         } else {
             // Middle third of the screen: launch the ball
-            launcher?.run(launchSequence)
-                }
+            launcher?.run(pullBack)
         }
     }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Get the location of the touch
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
+
+        // Calculate the duration of the touch
+        let touchDuration = touch.timestamp - (touchStart ?? touch.timestamp)
+
+        // Use the touch duration to determine the launch force
+        let launchForce = CGFloat(touchDuration) * 1000.0
+
+        // Define launch action for the launcher
+        let moveLauncherUp = SKAction.moveBy(x: 0, y: 10, duration: 0.1)
+        let launchBall = SKAction.run {
+            let launch = SKAction.applyImpulse(CGVector(dx: 0, dy: launchForce), duration: 0.1)
+            self.pinball?.run(launch)
+        }
+        let launchSequence = SKAction.sequence([moveLauncherUp, launchBall])
+
+        // If the middle third of the screen was initially touched, launch the ball
+        if location.x > -size.width / 6 && !(location.x > 0 && location.x < size.width / 6) {
+            launcher?.run(launchSequence)
+        }
+    }
+
+
+    
+    
+}
+
+
 
 
 
