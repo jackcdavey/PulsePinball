@@ -74,9 +74,14 @@ class GameScene: SKScene {
         // Get the location of the touch
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
+        var touchStart: TimeInterval?
+
 
         // Print the location of the touch
         print("Tapped at: \(location)")
+        
+        // Record the time the touch started
+        touchStart = touch.timestamp
         
         // Define actions for the flippers and the launcher
         let moveLeftUp = SKAction.rotate(byAngle: .pi / 4, duration: 0.1)
