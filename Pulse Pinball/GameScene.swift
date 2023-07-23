@@ -22,6 +22,7 @@ class GameScene: SKScene {
     var touchStart: TimeInterval?
     var isPullingBack = false
 
+    var originalPinballPosition: CGPoint?
     var originalLauncherPosition: CGPoint?
 
     
@@ -42,6 +43,7 @@ class GameScene: SKScene {
         curveWall = self.childNode(withName: "curveWall") as? SKSpriteNode
         
         originalLauncherPosition = launcher?.position
+        originalPinballPosition = pinball?.position
         
         
         
@@ -74,6 +76,13 @@ class GameScene: SKScene {
         outerWall?.physicsBody?.isDynamic = false
         curveWall?.physicsBody?.isDynamic = false
         
+//        Reset button
+        let resetButton = SKLabelNode(text: "Reset")
+        resetButton.name = "resetButton"
+        resetButton.position = CGPoint(x: 0, y: size.height / 2 - 50)
+        addChild(resetButton)
+
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -87,6 +96,16 @@ class GameScene: SKScene {
         
         // Record the time the touch started
         touchStart = touch.timestamp
+        
+        
+
+        // Check if the reset button was tapped
+        if let node = nodes(at: location).first, node.name == "resetButton" {
+            // Reset the pinball
+            pinball?.position = originalPinballPosition!
+            pinball?.physicsBody?.velocity = CGVector.zero
+            return
+        }
         
         // Define actions for the flippers and the launcher
         let moveLeftUp = SKAction.rotate(byAngle: .pi / 4, duration: 0.1)
@@ -153,11 +172,11 @@ class GameScene: SKScene {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
 
-        // Calculate the duration of the touch
-        let touchDuration = touch.timestamp - (touchStart ?? touch.timestamp)
+        // Calculate how far the launcher was pulled back
+        let pullBackDistance = originalLauncherPosition!.y - launcher!.position.y
 
-        // Use the touch duration to determine the launch force
-        let launchForce = CGFloat(touchDuration) * 1000.0
+        // Use the pull back distance to determine the launch force
+        let launchForce = pullBackDistance * 50.0
 
         // Define actions for the launcher
         let moveLauncherBack = SKAction.move(to: originalLauncherPosition!, duration: 0.1)
@@ -172,6 +191,7 @@ class GameScene: SKScene {
             launcher?.run(launchSequence)
         }
     }
+
 
 
 
