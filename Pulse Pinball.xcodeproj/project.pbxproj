@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49CA11F62A6CBA310067B069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA11F52A6CBA310067B069 /* AppDelegate.swift */; };
+		49CA11F82A6CBA310067B069 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 49CA11F72A6CBA310067B069 /* GameScene.sks */; };
+		49CA11FA2A6CBA310067B069 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 49CA11F92A6CBA310067B069 /* Actions.sks */; };
+		49CA11FC2A6CBA310067B069 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA11FB2A6CBA310067B069 /* GameScene.swift */; };
+		49CA11FE2A6CBA310067B069 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA11FD2A6CBA310067B069 /* GameViewController.swift */; };
+		49CA12012A6CBA310067B069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CA11FF2A6CBA310067B069 /* Main.storyboard */; };
+		49CA12032A6CBA320067B069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CA12022A6CBA320067B069 /* Assets.xcassets */; };
+		49CA12062A6CBA320067B069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CA12042A6CBA320067B069 /* LaunchScreen.storyboard */; };
+		49CA12102A6CBA320067B069 /* Pulse_PinballTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA120F2A6CBA320067B069 /* Pulse_PinballTests.swift */; };
+		49CA121A2A6CBA320067B069 /* Pulse_PinballUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA12192A6CBA320067B069 /* Pulse_PinballUITests.swift */; };
+		49CA121C2A6CBA320067B069 /* Pulse_PinballUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA121B2A6CBA320067B069 /* Pulse_PinballUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49CA120C2A6CBA320067B069 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49CA11EA2A6CBA310067B069 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49CA11F12A6CBA310067B069;
+			remoteInfo = "Pulse Pinball";
+		};
+		49CA12162A6CBA320067B069 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49CA11EA2A6CBA310067B069 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49CA11F12A6CBA310067B069;
+			remoteInfo = "Pulse Pinball";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		49CA11F22A6CBA310067B069 /* Pulse Pinball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pulse Pinball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49CA11F52A6CBA310067B069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49CA11F72A6CBA310067B069 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		49CA11F92A6CBA310067B069 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		49CA11FB2A6CBA310067B069 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		49CA11FD2A6CBA310067B069 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		49CA12002A6CBA310067B069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49CA12022A6CBA320067B069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49CA12052A6CBA320067B069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		49CA120B2A6CBA320067B069 /* Pulse PinballTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pulse PinballTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49CA120F2A6CBA320067B069 /* Pulse_PinballTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulse_PinballTests.swift; sourceTree = "<group>"; };
+		49CA12152A6CBA320067B069 /* Pulse PinballUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pulse PinballUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49CA12192A6CBA320067B069 /* Pulse_PinballUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulse_PinballUITests.swift; sourceTree = "<group>"; };
+		49CA121B2A6CBA320067B069 /* Pulse_PinballUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulse_PinballUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49CA11EF2A6CBA310067B069 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49CA12082A6CBA320067B069 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49CA12122A6CBA320067B069 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49CA11E92A6CBA310067B069 = {
+			isa = PBXGroup;
+			children = (
+				49CA11F42A6CBA310067B069 /* Pulse Pinball */,
+				49CA120E2A6CBA320067B069 /* Pulse PinballTests */,
+				49CA12182A6CBA320067B069 /* Pulse PinballUITests */,
+				49CA11F32A6CBA310067B069 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49CA11F32A6CBA310067B069 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49CA11F22A6CBA310067B069 /* Pulse Pinball.app */,
+				49CA120B2A6CBA320067B069 /* Pulse PinballTests.xctest */,
+				49CA12152A6CBA320067B069 /* Pulse PinballUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49CA11F42A6CBA310067B069 /* Pulse Pinball */ = {
+			isa = PBXGroup;
+			children = (
+				49CA11F52A6CBA310067B069 /* AppDelegate.swift */,
+				49CA11F72A6CBA310067B069 /* GameScene.sks */,
+				49CA11F92A6CBA310067B069 /* Actions.sks */,
+				49CA11FB2A6CBA310067B069 /* GameScene.swift */,
+				49CA11FD2A6CBA310067B069 /* GameViewController.swift */,
+				49CA11FF2A6CBA310067B069 /* Main.storyboard */,
+				49CA12022A6CBA320067B069 /* Assets.xcassets */,
+				49CA12042A6CBA320067B069 /* LaunchScreen.storyboard */,
+			);
+			path = "Pulse Pinball";
+			sourceTree = "<group>";
+		};
+		49CA120E2A6CBA320067B069 /* Pulse PinballTests */ = {
+			isa = PBXGroup;
+			children = (
+				49CA120F2A6CBA320067B069 /* Pulse_PinballTests.swift */,
+			);
+			path = "Pulse PinballTests";
+			sourceTree = "<group>";
+		};
+		49CA12182A6CBA320067B069 /* Pulse PinballUITests */ = {
+			isa = PBXGroup;
+			children = (
+				49CA12192A6CBA320067B069 /* Pulse_PinballUITests.swift */,
+				49CA121B2A6CBA320067B069 /* Pulse_PinballUITestsLaunchTests.swift */,
+			);
+			path = "Pulse PinballUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49CA11F12A6CBA310067B069 /* Pulse Pinball */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49CA121F2A6CBA320067B069 /* Build configuration list for PBXNativeTarget "Pulse Pinball" */;
+			buildPhases = (
+				49CA11EE2A6CBA310067B069 /* Sources */,
+				49CA11EF2A6CBA310067B069 /* Frameworks */,
+				49CA11F02A6CBA310067B069 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pulse Pinball";
+			productName = "Pulse Pinball";
+			productReference = 49CA11F22A6CBA310067B069 /* Pulse Pinball.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49CA120A2A6CBA320067B069 /* Pulse PinballTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49CA12222A6CBA320067B069 /* Build configuration list for PBXNativeTarget "Pulse PinballTests" */;
+			buildPhases = (
+				49CA12072A6CBA320067B069 /* Sources */,
+				49CA12082A6CBA320067B069 /* Frameworks */,
+				49CA12092A6CBA320067B069 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49CA120D2A6CBA320067B069 /* PBXTargetDependency */,
+			);
+			name = "Pulse PinballTests";
+			productName = "Pulse PinballTests";
+			productReference = 49CA120B2A6CBA320067B069 /* Pulse PinballTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		49CA12142A6CBA320067B069 /* Pulse PinballUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49CA12252A6CBA320067B069 /* Build configuration list for PBXNativeTarget "Pulse PinballUITests" */;
+			buildPhases = (
+				49CA12112A6CBA320067B069 /* Sources */,
+				49CA12122A6CBA320067B069 /* Frameworks */,
+				49CA12132A6CBA320067B069 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49CA12172A6CBA320067B069 /* PBXTargetDependency */,
+			);
+			name = "Pulse PinballUITests";
+			productName = "Pulse PinballUITests";
+			productReference = 49CA12152A6CBA320067B069 /* Pulse PinballUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49CA11EA2A6CBA310067B069 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					49CA11F12A6CBA310067B069 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					49CA120A2A6CBA320067B069 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 49CA11F12A6CBA310067B069;
+					};
+					49CA12142A6CBA320067B069 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 49CA11F12A6CBA310067B069;
+					};
+				};
+			};
+			buildConfigurationList = 49CA11ED2A6CBA310067B069 /* Build configuration list for PBXProject "Pulse Pinball" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49CA11E92A6CBA310067B069;
+			productRefGroup = 49CA11F32A6CBA310067B069 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49CA11F12A6CBA310067B069 /* Pulse Pinball */,
+				49CA120A2A6CBA320067B069 /* Pulse PinballTests */,
+				49CA12142A6CBA320067B069 /* Pulse PinballUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49CA11F02A6CBA310067B069 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CA12012A6CBA310067B069 /* Main.storyboard in Resources */,
+				49CA11F82A6CBA310067B069 /* GameScene.sks in Resources */,
+				49CA12032A6CBA320067B069 /* Assets.xcassets in Resources */,
+				49CA12062A6CBA320067B069 /* LaunchScreen.storyboard in Resources */,
+				49CA11FA2A6CBA310067B069 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49CA12092A6CBA320067B069 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49CA12132A6CBA320067B069 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49CA11EE2A6CBA310067B069 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CA11FC2A6CBA310067B069 /* GameScene.swift in Sources */,
+				49CA11FE2A6CBA310067B069 /* GameViewController.swift in Sources */,
+				49CA11F62A6CBA310067B069 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49CA12072A6CBA320067B069 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CA12102A6CBA320067B069 /* Pulse_PinballTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49CA12112A6CBA320067B069 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CA121A2A6CBA320067B069 /* Pulse_PinballUITests.swift in Sources */,
+				49CA121C2A6CBA320067B069 /* Pulse_PinballUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49CA120D2A6CBA320067B069 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49CA11F12A6CBA310067B069 /* Pulse Pinball */;
+			targetProxy = 49CA120C2A6CBA320067B069 /* PBXContainerItemProxy */;
+		};
+		49CA12172A6CBA320067B069 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49CA11F12A6CBA310067B069 /* Pulse Pinball */;
+			targetProxy = 49CA12162A6CBA320067B069 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		49CA11FF2A6CBA310067B069 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49CA12002A6CBA310067B069 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		49CA12042A6CBA320067B069 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49CA12052A6CBA320067B069 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49CA121D2A6CBA320067B069 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		49CA121E2A6CBA320067B069 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		49CA12202A6CBA320067B069 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 929ZNF238E;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JackDavey.Pulse-Pinball";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		49CA12212A6CBA320067B069 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 929ZNF238E;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JackDavey.Pulse-Pinball";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		49CA12232A6CBA320067B069 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 929ZNF238E;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JackDavey.Pulse-PinballTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pulse Pinball.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pulse Pinball";
+			};
+			name = Debug;
+		};
+		49CA12242A6CBA320067B069 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 929ZNF238E;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JackDavey.Pulse-PinballTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pulse Pinball.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pulse Pinball";
+			};
+			name = Release;
+		};
+		49CA12262A6CBA320067B069 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 929ZNF238E;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JackDavey.Pulse-PinballUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pulse Pinball";
+			};
+			name = Debug;
+		};
+		49CA12272A6CBA320067B069 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 929ZNF238E;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JackDavey.Pulse-PinballUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pulse Pinball";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49CA11ED2A6CBA310067B069 /* Build configuration list for PBXProject "Pulse Pinball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49CA121D2A6CBA320067B069 /* Debug */,
+				49CA121E2A6CBA320067B069 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49CA121F2A6CBA320067B069 /* Build configuration list for PBXNativeTarget "Pulse Pinball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49CA12202A6CBA320067B069 /* Debug */,
+				49CA12212A6CBA320067B069 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49CA12222A6CBA320067B069 /* Build configuration list for PBXNativeTarget "Pulse PinballTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49CA12232A6CBA320067B069 /* Debug */,
+				49CA12242A6CBA320067B069 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49CA12252A6CBA320067B069 /* Build configuration list for PBXNativeTarget "Pulse PinballUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49CA12262A6CBA320067B069 /* Debug */,
+				49CA12272A6CBA320067B069 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49CA11EA2A6CBA310067B069 /* Project object */;
+}
