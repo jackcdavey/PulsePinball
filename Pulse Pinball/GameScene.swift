@@ -20,8 +20,10 @@ class GameScene: SKScene {
     var outerWall: SKSpriteNode?
     var curveWall: SKSpriteNode?
     var touchStart: TimeInterval?
+    var isPullingBack = false
 
-    
+    var originalLauncherPosition: CGPoint?
+
     
     
     override func didMove(to view: SKView) {
@@ -38,6 +40,8 @@ class GameScene: SKScene {
         rightWall = self.childNode(withName: "rightWall") as? SKSpriteNode
         outerWall = self.childNode(withName: "outerWall") as? SKSpriteNode
         curveWall = self.childNode(withName: "curveWall") as? SKSpriteNode
+        
+        originalLauncherPosition = launcher?.position
         
         
         
@@ -93,6 +97,7 @@ class GameScene: SKScene {
         let rightFlip = SKAction.sequence([moveRightUp, moveRightDown])
         let moveLauncherDown = SKAction.moveBy(x: 0, y: -100, duration: 0.5)
         let moveLauncherUp = SKAction.moveBy(x: 0, y: 110, duration: 0.05)
+
         
         // Apply an impulse to the ball when the launcher moves up
 //        let launchBall = SKAction.run {
@@ -114,10 +119,36 @@ class GameScene: SKScene {
             rightFlipper?.run(rightFlip)
         } else {
             // Middle third of the screen: launch the ball
+            isPullingBack = true
             launcher?.run(pullBack)
         }
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Check if the launcher is being pulled back
+        if isPullingBack {
+            // Get the location of the touch
+            guard let touch = touches.first else { return }
+            var location = touch.location(in: self)
+
+            // Constrain the location so the launcher doesn't move left/right or too high
+            location.x = originalLauncherPosition?.x ?? location.x
+            location.y = min(location.y, originalLauncherPosition?.y ?? location.y)
+            location.y = max(location.y, (originalLauncherPosition?.y ?? location.y) - launcher!.size.height)
+
+            // Move the launcher to the constrained location
+            let pullBack = SKAction.move(to: location, duration: 0.1)
+            launcher?.run(pullBack)
+        }
+    }
+
+
+    
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Stop pulling back the launcher
+        isPullingBack = false
+
         // Get the location of the touch
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
@@ -128,19 +159,20 @@ class GameScene: SKScene {
         // Use the touch duration to determine the launch force
         let launchForce = CGFloat(touchDuration) * 1000.0
 
-        // Define launch action for the launcher
-        let moveLauncherUp = SKAction.moveBy(x: 0, y: 10, duration: 0.1)
+        // Define actions for the launcher
+        let moveLauncherBack = SKAction.move(to: originalLauncherPosition!, duration: 0.1)
         let launchBall = SKAction.run {
             let launch = SKAction.applyImpulse(CGVector(dx: 0, dy: launchForce), duration: 0.1)
             self.pinball?.run(launch)
         }
-        let launchSequence = SKAction.sequence([moveLauncherUp, launchBall])
-
-        // If the middle third of the screen was initially touched, launch the ball
+        
+        // If the middle third of the screen was initially touched, move the launcher back and launch the ball
         if location.x > -size.width / 6 && !(location.x > 0 && location.x < size.width / 6) {
+            let launchSequence = SKAction.sequence([moveLauncherBack, launchBall])
             launcher?.run(launchSequence)
         }
     }
+
 
 
     
