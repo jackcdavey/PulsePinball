@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Declare the pinball, flippers, and launcher
     var pinball: SKSpriteNode?
@@ -23,17 +23,50 @@ class GameScene: SKScene {
     var curveWall: SKSpriteNode?
     var touchStart: TimeInterval?
     var isPullingBack = false
+    var readyForLaunch = false
     
 
     var originalPinballPosition: CGPoint?
     var originalLauncherPosition: CGPoint?
+    
+    struct PhysicsCategory {
+        static let None: UInt32 = 0
+        static let All: UInt32 = UInt32.max
+        static let Pinball: UInt32 = 0b1       // 1
+        static let Launcher: UInt32 = 0b10     // 2
+    }
+
+    
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        if (firstBody.categoryBitMask & PhysicsCategory.Pinball != 0) && (secondBody.categoryBitMask & PhysicsCategory.Launcher != 0) {
+            // The pinball and launcher have made contact.
+            readyForLaunch = true
+        } else{
+            readyForLaunch = false
+        }
+    }
+
 
     
     
     override func didMove(to view: SKView) {
         
         // Set up the physics world
+        physicsWorld.contactDelegate = self
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8)
+        
         
         // Initialize the pinball, flippers, and launcher
         pinball = self.childNode(withName: "pinball") as? SKSpriteNode
@@ -59,16 +92,11 @@ class GameScene: SKScene {
         rightFlipper?.removeFromParent()
         rightFlipperParent?.addChild(rightFlipper!)
 
-
-        
-        
         rightFlipper?.anchorPoint = CGPoint(x: 1.0, y: 0.5)
         leftFlipper?.anchorPoint = CGPoint(x: 0.0, y: 0.5)
-
         
         originalLauncherPosition = launcher?.position
         originalPinballPosition = pinball?.position
-        
         
         
         // Set up the pinball physics
@@ -78,8 +106,10 @@ class GameScene: SKScene {
         
         
         // Set up the flipper physics
-        leftFlipper?.physicsBody = SKPhysicsBody(rectangleOf: leftFlipper!.size)
-        rightFlipper?.physicsBody = SKPhysicsBody(rectangleOf: rightFlipper!.size)
+        leftFlipper?.physicsBody = SKPhysicsBody(rectangleOf: leftFlipper!.size, center: CGPoint(x: leftFlipper!.size.width / 2, y: 0))
+        rightFlipper?.physicsBody = SKPhysicsBody(rectangleOf: rightFlipper!.size, center: CGPoint(x: -rightFlipper!.size.width / 2, y: 0))
+        
+
         
         // The flippers should not be affected by gravity or forces
         leftFlipper?.physicsBody?.isDynamic = false
@@ -99,6 +129,12 @@ class GameScene: SKScene {
         rightWall?.physicsBody?.isDynamic = false
         outerWall?.physicsBody?.isDynamic = false
         curveWall?.physicsBody?.isDynamic = false
+        
+        pinball?.physicsBody?.categoryBitMask = PhysicsCategory.Pinball
+        launcher?.physicsBody?.categoryBitMask = PhysicsCategory.Launcher
+        pinball?.physicsBody?.contactTestBitMask = PhysicsCategory.Launcher
+
+
         
 //        Reset button
         let resetButton = SKLabelNode(text: "Reset")
@@ -199,8 +235,13 @@ class GameScene: SKScene {
         // Calculate how far the launcher was pulled back
         let pullBackDistance = originalLauncherPosition!.y - launcher!.position.y
 
-        // Use the pull back distance to determine the launch force
+        //If the pinball is in the launcher, set the launch force to 50 times the distance the launcher was pulled back. Otherwise, set the launch force to 0
         let launchForce = pullBackDistance * 50.0
+        
+        
+        
+        
+       
 
         // Define actions for the launcher
         let moveLauncherBack = SKAction.move(to: originalLauncherPosition!, duration: 0.1)
@@ -212,15 +253,12 @@ class GameScene: SKScene {
         // If the middle third of the screen was initially touched, move the launcher back and launch the ball
         if location.x > -size.width / 6 && !(location.x > 0 && location.x < size.width / 6) {
             let launchSequence = SKAction.sequence([moveLauncherBack, launchBall])
-            launcher?.run(launchSequence)
+            if(readyForLaunch){
+                launcher?.run(launchSequence)
+                readyForLaunch = false
+            }
         }
     }
-
-
-
-
-    
-    
 }
 
 
